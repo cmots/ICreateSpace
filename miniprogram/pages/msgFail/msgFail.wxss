@@ -1,0 +1,4 @@
+/* pages/msgFail/msgFail.wxss */
+page{
+    background-color: #FFFFFF;
+}

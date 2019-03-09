@@ -1,0 +1,38 @@
+<!--pages/invitation/invitation.wxml-->
+<view class="weui-cells__title">表单</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">学生</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <!-- <input class="weui-input" placeholder="请输入qq"/> -->
+                    <view>{{stu.nickName}}</view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">专业</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <!-- <input class="weui-input" placeholder="请输入手机号" /> -->
+                    <view>{{stu.major}}</view>
+                </view>
+            </view>
+            
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">邀请加入的项目</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindProChange" value="{{proIndex}}" range="{{pro}}">
+                        <view class="weui-select weui-select_in-select-after">{{pro[proIndex].proName}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-btn-area">
+                <button class="weui-btn" type="primary" bindtap="onsubmit" >确定</button>
+            </view>
+        </view>
+        
+

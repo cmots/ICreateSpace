@@ -1,0 +1,21 @@
+<!--pages/info/info.wxml-->
+<view class="weui-cells__title">未读数红点跟在主题信息后，统一在列表左侧</view>
+
+<view class="weui-cells weui-cells_after-title">
+    <block wx:for="{{infos}}" wx:for-item="infoItem" wx:key="*this">
+        <!-- <navigator url="../mine/mine" open-type='switchTab' hover-class='other-navigator-hover'> -->
+            <view class="weui-cell" bindtap='ontap' data-index="{{infoItem}}">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="../../images/wx_login.png" style="width: 50px; height: 50px; display: block"/>
+                    <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">1</view>
+                </view>
+                <view class="weui-cell__bd">
+                  
+                    <view>{{infoItem.senderNickname}}</view>
+                    <view style="font-size: 13px;color: #888888;">{{infoItem.content}}</view>
+                  
+                </view>
+            </view>
+        <!-- </navigator> -->
+    </block>
+</view>

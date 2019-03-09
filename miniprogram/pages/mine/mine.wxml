@@ -1,0 +1,50 @@
+<!--pages/mine/mine.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                    
+                    <view class="weui-cells__title">我发起的项目</view>
+                    <view class="weui-cells weui-cells_after-title">
+                        <block wx:for="{{startProjects}}" wx:for-item="startProject" wx:key="*this">
+                            <view class="weui-cell">
+                                <view class="weui-cell__hd">
+                                    <image src="../../images/wx_login.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                                </view>
+                                <view class="weui-cell__bd">{{startProject.proName}}</view>
+                                <view class="weui-cell__ft">说明文字</view>
+                            </view>
+                        </block>
+                        
+                    </view>
+
+
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                    <view class="weui-cells__title">我参与的项目</view>
+                    <view class="weui-cells weui-cells_after-title">
+                        <block wx:for="{{attendProjects}}" wx:for-item="attendProject" wx:key="*this">
+                            <view class="weui-cell">
+                                <view class="weui-cell__hd">
+                                    <image src="../../images/wx_login.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                                </view>
+                                <view class="weui-cell__bd">{{attendProject.proName}}</view>
+                                <view class="weui-cell__ft">说明文字</view>
+                            </view>
+                        </block>
+                        
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

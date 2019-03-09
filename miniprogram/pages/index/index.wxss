@@ -1,0 +1,19 @@
+/**index.wxss**/
+
+
+.imgw{width:100%;}
+
+.line{
+width: 100%;
+margin-top: 20rpx;
+border-top:1px #989898 solid;
+}
+
+.index-title {
+  font-size: 20pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 100%;
+  height: 100%;
+}

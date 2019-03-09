@@ -1,0 +1,309 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                  <view class="page__hd">
+                      <view class="page__title">学生信息</view>
+                      <view class="page__desc">StuInfo</view>
+                  </view>
+                  
+                  <view wx:for="{{pageStuCS}}" wx:for-item="stuCS"> 
+                    
+                    <view class="page__bd">
+                      <view class="weui-form-preview">
+                          <view class="weui-form-preview__hd">
+
+                            <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">学生:</view>
+                                <view class="weui-form-preview__value_in-hd">{{stuCS.nickName}}</view>
+                            </view>
+
+                          </view>
+
+                          <view class="weui-form-preview__bd">
+
+                            <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">专业:</view>
+                                <view class="weui-form-preview__value_in-hd">{{stuCS.major}}</view>
+                            </view>
+
+                          </view>
+
+                          <view class="weui-form-preview__ft" bindtap='onInvitation' data-index = "{{stuCS}}">
+                              <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">邀请</view>
+                          </view>
+
+                      </view>
+                    </view>
+
+
+                  </view>
+                  <view class="page__hd">
+                      <view class="page__title">项目信息</view>
+                      <view class="page__desc">ProjectInfo</view>
+                  </view>
+
+                  <view wx:for="{{pageProCS}}" wx:for-item="proCS">
+                    
+                    <view class="page__bd">
+                        <view class="weui-form-preview">
+                            <view class="weui-form-preview__hd">
+
+                              <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">项目:</view>
+                                <view class="weui-form-preview__value_in-hd">{{proCS.proName}}</view>
+                              </view>
+
+                            </view>
+
+                            <view class="weui-form-preview__bd">
+
+                              <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">类别:</view>
+                                <view class="weui-form-preview__value_in-hd">{{proCS.major}}</view>
+                              </view>
+
+                              
+
+                            </view>
+                            <view class="weui-form-preview__ft" bindtap='onApplication' data-index = "{{proCS}}">
+                                <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">申请</view>
+                            </view>
+
+
+                        </view>
+                    </view>
+
+                  </view>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                  <view class="page__hd">
+                      <view class="page__title">学生信息</view>
+                      <view class="page__desc">StuInfo</view>
+                  </view>
+
+                  <view wx:for="{{pageStuIOT}}" wx:for-item="stuIOT"> 
+                    
+                    <view class="page__bd">
+                        <view class="weui-form-preview">
+                            <view class="weui-form-preview__hd">
+
+                               <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">学生:</view>
+                                <view class="weui-form-preview__value_in-hd">{{stuIOT.nickName}}</view>
+                              </view>
+
+                            </view>
+
+                            <view class="weui-form-preview__bd">
+
+                              <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">专业:</view>
+                                <view class="weui-form-preview__value_in-hd">{{stuIOT.major}}</view>
+                              </view>
+
+
+                            </view>
+
+                            <view class="weui-form-preview__ft" bindtap='onInvitation' data-index = "{{stuIOT}}">
+                              <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">邀请</view>
+                          </view>
+
+
+                        </view>
+                    </view>
+
+
+                  </view>
+                  <view class="page__hd">
+                      <view class="page__title">项目信息</view>
+                      <view class="page__desc">ProjectInfo</view>
+                  </view>
+
+                  <view wx:for="{{pageProIOT}}" wx:for-item="proIOT">
+                    
+                    <view class="page__bd">
+                        <view class="weui-form-preview">
+                            <view class="weui-form-preview__hd">
+
+                                <view class="weui-form-preview__item">
+                                    <view class="weui-form-preview__label">项目：</view>
+                                    <view class="weui-form-preview__value_in-hd">{{proIOT.proName}}</view>
+                                </view>
+
+                            </view>
+
+                            <view class="weui-form-preview__bd">
+
+                              <view class="weui-form-preview__item">
+                                  <view class="weui-form-preview__label">类别：</view>
+                                  <view class="weui-form-preview__value_in-hd">{{proIOT.major}}</view>
+                              </view>
+
+                              
+                            </view>
+
+                            <view class="weui-form-preview__ft" bindtap='onApplication' data-index = "{{proIOT}}">
+                                <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">申请</view>
+                            </view>
+                        </view>
+                    </view>
+
+                  </view>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                  <view class="page__hd">
+                      <view class="page__title">学生信息</view>
+                      <view class="page__desc">StuInfo</view>
+                  </view>
+                  <view wx:for="{{pageStuEE}}" wx:for-item="stuEE"> 
+                    
+                      <view class="page__bd">
+                          <view class="weui-form-preview">
+                              <view class="weui-form-preview__hd">
+
+                                <view class="weui-form-preview__item">
+                                    <view class="weui-form-preview__label">学生:</view>
+                                    <view class="weui-form-preview__value_in-hd">{{stuEE.nickName}}</view>
+                                </view>
+
+                              </view>
+
+                              <view class="weui-form-preview__bd">
+
+                                <view class="weui-form-preview__item">
+                                    <view class="weui-form-preview__label">专业:</view>
+                                    <view class="weui-form-preview__value_in-hd">{{stuEE.major}}</view>
+                                </view>
+
+
+                              </view>
+
+                              <view class="weui-form-preview__ft" bindtap='onInvitation' data-index = "{{stuEE}}">
+                                  <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">邀请</view>
+                              </view>
+                          </view>
+                      </view>
+
+
+                  </view>
+                  <view class="page__hd">
+                      <view class="page__title">项目信息</view>
+                      <view class="page__desc">ProjectInfo</view>
+                  </view>
+                  <view wx:for="{{pageProEE}}" wx:for-item="proEE">
+                    
+                    <view class="page__bd">
+                        <view class="weui-form-preview">
+                            <view class="weui-form-preview__hd">
+
+                                <view class="weui-form-preview__item">
+                                    <view class="weui-form-preview__label">项目:</view>
+                                    <view class="weui-form-preview__value_in-hd">{{proEE.proName}}</view>
+                                </view>
+
+                            </view>
+
+                            <view class="weui-form-preview__bd">
+                                  <view class="weui-form-preview__item">
+                                      <view class="weui-form-preview__label">类别:</view>
+                                      <view class="weui-form-preview__value_in-hd">{{proEE.major}}</view>
+                                  </view>
+
+                                  
+                            </view>
+                            <view class="weui-form-preview__ft" bindtap='onApplication' data-index = "{{proEE}}">
+                                <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">申请</view>
+                            </view>
+                        </view>
+                    </view>
+
+                  </view>
+
+                </view>
+
+                <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+                    <view class="page__hd">
+                        <view class="page__title">学生信息</view>
+                        <view class="page__desc">StuInfo</view>
+                    </view>
+                    <view wx:for="{{pageStuUndefined}}" wx:for-item="stuUn">
+                      <view class="page__bd">
+                        <view class="weui-form-preview">
+                          <view class="weui-form-preview__hd">
+                            <view class="weui-form-preview__item">
+                              <view class="weui-form-preview__label">学生:</view>
+                              <view class="weui-form-preview__value_in-hd">{{stuUn.nickName}}</view>
+                            </view>
+                          </view>
+
+                          <view class="weui-form-preview__bd">
+
+                            <view class="weui-form-preview__item">
+                              <view class="weui-form-preview__label">专业:</view>
+                              <view class="weui-form-preview__value_in-hd">{{stuUn.major}}</view>
+                            </view>
+
+                          </view>
+
+                          <view class="weui-form-preview__ft" bindtap = "onInvitation" data-index = "{{stuUn}}">
+                              <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">邀请</view>
+                          </view>
+
+                        </view>
+                      </view>
+                      
+                    </view>
+                    <view class="page__hd">
+                        <view class="page__title">项目信息</view>
+                        <view class="page__desc">ProjectInfo</view>
+                    </view>
+                    <view wx:for="{{pageProUndefined}}" wx:for-item="proUndefined">
+                      
+                      <view class="page__bd">
+                        <view class="weui-form-preview">
+                          <view class="weui-form-preview__hd">
+
+                            <view class="weui-form-preview__item">
+                              <view class="weui-form-preview__label">项目:</view>
+                              <view class="weui-form-preview__value_in-hd">{{proUndefined.proName}}</view>
+                            </view>
+
+                          </view>
+
+                          <view class="weui-form-preview__bd">
+
+                            <view class="weui-form-preview__item">
+                              <view class="weui-form-preview__label">类别:</view>
+                              <view class="weui-form-preview__value_in-hd">{{proUndefined.major}}</view>
+                            </view>
+
+
+                          </view>
+
+                          <view class="weui-form-preview__ft" bindtap = "onApplication" data-index = "{{proUndefined}}">
+                              <view url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">申请</view>
+                              
+                          </view>
+
+
+                        </view>
+                      </view>
+                      
+
+                    </view>
+                  
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
