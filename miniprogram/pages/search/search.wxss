@@ -1,14 +1,28 @@
 /* miniprogram/pages/search/search.wxss */
 .line{
 width: 100%;
-margin-top: 20rpx;
-border-top:1px #989898 solid;
+margin-top: 10rpx;
+border-top: 1px #989898 solid;
 }
 .help-txt {
-  font-size: 80%;
+  font-size: 130%;
   display: flex;
   align-items: center;
   justify-content: center;  
   width: 100%;
   height: 100%;
+}
+/** 修改button默认的点击态样式类**/
+.button-hover {
+  background-color: red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  background-color: blue;
+}
+button {margin: 10px;}
+
+
+radio {
+  transform:scale(0.75);
 }

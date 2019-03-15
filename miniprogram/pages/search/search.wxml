@@ -22,30 +22,34 @@
       {{item.name}}
     </label>
   </radio-group>
-<button class="weui-btn" type="primary" bindtap='search' wx:if="{{inputShowed}}">就决定是你了</button>
+<button type="warn" bindtap='search' wx:if="{{inputShowed}}">就决定是你了</button>
 
 <view class="weui-cells weui-cells_after-title" hidden="{{inputShowed}}">
-  <text class="help-txt">没有想搜的？\n随便看看吧</text>
+  <text class="help-txt">没有想搜的？ 随便看看吧</text>
   <view class="line"></view>
-  <checkbox-group bindchange="checkboxChange">
+
+
+  <checkbox-group bindchange="checkboxChange" >
     <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}">
       <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-        <view class="weui-cell__hd weui-check__hd_in-checkbox">
-        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+        <view class="weui-cell__hd weui-check__hd_in-checkbox" >
+        <icon class="weui-icon-checkbox_circle" type="circle" color="red" size="18" wx:if="{{!item.checked}}"></icon>
+        <icon class="weui-icon-checkbox_success" type="success" color="red" size="18" wx:if="{{item.checked}}"></icon>
         </view>
-        <view class="weui-cell__bd">{{item.name}}</view>
+        <view class="weui-cell__bd" >{{item.name}}</view>
       </label>
   </checkbox-group>
+
 
   <view class="line"></view>
   <radio-group class="radio-group" bindchange="radioChange">
     <label class="radio" wx:for="{{radioItems}}">
-      <radio value="{{item.value}}" checked="{{item.checked}}" />
+      <radio value="{{item.value}}" color="red" checked="{{item.checked}}" />
       {{item.name}}
     </label>
   </radio-group>
 
-  <button class="weui-btn" type="primary" bindtap='find'>就决定是你了</button>
+
+  <button type="warn"  bindtap='find'>就决定是你了</button>
 
 </view>

@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<scroll-view  scroll-y="true" style="height:200px"  class="page-body" bindscrolltolower="loadMore">
+<scroll-view  scroll-y="true" style="height:160px"  class="page-body" bindscrolltolower="loadMore">
   <view class="swiper">
     <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
@@ -35,10 +35,10 @@
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat.
                     </view>
-                    <view class="weui-article__p">
+                 <!--   <view class="weui-article__p">
                         <image class="weui-article__img" src="../images/pic_article.png" mode="aspectFit" style="height: 180px" />
                         <image class="weui-article__img" src="../images/pic_article.png" mode="aspectFit" style="height: 180px" />
-                    </view>
+                    </view>-->
                 </view>
                 <view class="weui-article__section">
                     <view class="weui-article__h2">1.2 节标题</view>
