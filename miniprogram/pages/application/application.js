@@ -1,13 +1,12 @@
 // pages/application/application.js 表单中自己填自己的名字
-const app = getApp()
+var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     pro:[],
-    senderNickname:'',
+    //senderNickname:'',
     proName: '',
     project: '',
     receiver: ''
@@ -18,11 +17,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    const proName=options.proName
+    const project=options.project
+    const receiver=options.receiver
     that.setData({
-      proName: options.proName,
-      project: options.project,
-      receiver: options.receiver,
-      senderNickname: options.senderNickname
+      proName: proName,
+      project: project,
+      receiver: receiver,
+      //senderNickname: options.senderNickname
     })
 
     const db = wx.cloud.database()
@@ -62,7 +64,6 @@ Page({
     })
   },
   bindNicknameChange: function(e){
-      console.log(e.detail.value)
       this.setData({
         senderNickname: e.detail.value
       })

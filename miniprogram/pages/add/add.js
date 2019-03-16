@@ -7,11 +7,13 @@ Page({
    */
   data: {
     proName: '',
+    majorName:['校外','电信','物联','电管'],
     major: ['undefined', 'CS', 'IOT', 'EE'],
     majorIndex: 0,
     state: ['招人中..','进行中..','已结束'],
     stateIndex: 0,
-    description: ''
+    description: '',
+    descNum:0
   },
   bindMajorChange: function(e){
     this.setData({
@@ -30,7 +32,8 @@ Page({
   },
   bindProDescriptionChange: function(e){
     this.setData({
-      description: e.detail.value
+      description: e.detail.value,
+      descNum:e.detail.value.length
     })
   },
   onsubmit: function(){// 暂时只有项目名称不能为空

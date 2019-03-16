@@ -1,1 +1,2 @@
 /* miniprogram/pages/result/single.wxss */
+button {margin: 10px;}

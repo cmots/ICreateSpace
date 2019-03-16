@@ -5,10 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:'',
     type:'',
     name:'',
     major:'',
-    key:''
+    key:'',
+    description:'',
+    openid:''
   },
 
   /**
@@ -37,7 +40,10 @@ Page({
           if (type == 'project') {
             that.setData({
               major: res.data[0].major,
-              name: res.data[0].proName
+              name: res.data[0].proName,
+              description:res.data[0].description,
+              id:options.id,
+              openid:res.data[0]._openid
             })
           }
           wx.hideLoading();
@@ -52,7 +58,9 @@ Page({
           success(res) {
             that.setData({
               major: res.data[0].major,
-              name: res.data[0].proName
+              name: res.data[0].proName,
+              description: res.data[0].description,
+              id:options.id
             })
             wx.hideLoading();
           }
@@ -61,6 +69,12 @@ Page({
     }
   },
 
+  onApplication: function (e) {
+    var that=this
+    wx.navigateTo({
+      url: '../application/application?project=' + that.data.id + '&proName=' + that.data.name + '&receiver=' + that.data.openid,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
