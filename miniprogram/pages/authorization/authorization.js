@@ -21,17 +21,15 @@ Page({
     //查看是否授权
     wx.getSetting({
       success: function (res) {
-
-            if (res.authSetting['scope.userInfo']) {
-              wx.getUserInfo({
-                success: function (res) {
-                  
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
-                }
-              })
-            }
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+          success: function (res) {                
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }
+         })
+        }
       }
     })
   },
@@ -45,7 +43,10 @@ Page({
           openid: getApp().globalData.openid,
           nickName: e.detail.userInfo.nickName,
           avatarUrl: e.detail.userInfo.avatarUrl,//头像
-          major:'undefined'
+          major:'undefined',
+          hobby:'',
+          description:'',
+          gender:e.detail.userInfo.gender
         },
         success: function(res){
           console.log("cloud add success")

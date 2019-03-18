@@ -8,6 +8,14 @@ page,
     padding-bottom: 0;
 }
 .weui-tab__content{
-    padding-top: 60px;
     text-align: center;
+}
+.avator{
+  width:110rpx;
+  height:110rpx;
+  margin:5rpx;
+  border-radius:50%;
+  display:flex;
+  overflow:hidden;
+  padding-left: 90rpx;
 }

@@ -10,25 +10,23 @@
                 </block>
                 <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
             </view>
+          
             <view class="weui-tab__panel">
-                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-                    
-                    <view class="weui-cells__title">我发起的项目</view>
-                    <view class="weui-cells weui-cells_after-title">
-                        <block wx:for="{{startProjects}}" wx:for-item="startProject" wx:key="*this">
-                            <view class="weui-cell">
-                                <view class="weui-cell__hd">
-                                    <image src="../../images/wx_login.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                                </view>
-                                <view class="weui-cell__bd">{{startProject.proName}}</view>
-                                <view class="weui-cell__ft">说明文字</view>
-                            </view>
-                        </block>
-                        
-                    </view>
+              <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <view class="weui-cells__title">我发起的项目</view>
+                <view class="weui-cells weui-cells_after-title">
+                  <block wx:for="{{startProjects}}" wx:for-item="startProject" wx:key="*this">
+                    <view class="weui-cell">
+                      <view class="weui-cell__hd">
+                        <image src="../../images/wx_login.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                      </view>
+                      <view class="weui-cell__bd">{{startProject.proName}}</view>
+                      <view class="weui-cell__ft">说明文字</view>
+                     </view>
+                  </block>
+                 </view>
+              </view>
 
-
-                </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
                     <view class="weui-cells__title">我参与的项目</view>
                     <view class="weui-cells weui-cells_after-title">
@@ -40,15 +38,46 @@
                                 <view class="weui-cell__bd">{{attendProject.proName}}</view>
                                 <view class="weui-cell__ft">说明文字</view>
                             </view>
-                        </block>
-                        
+                        </block>                   
                     </view>
                 </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell__bd">{{profile.nickName}}</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
 
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                  <view class="weui-cells weui-cells_after-title">
+                  <navigator url="../mine/profile">
+                    <view class="weui-cell">
+                        <open-data class='avator'type="userAvatarUrl" mode="cover"></open-data>
+                        <view class="weui-label">
+                          <view class="weui-cell__hd">Hi, {{profile.nickName}}</view>
+                        </view>
+                        <view class="weui-cell__bd"></view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                  </navigator>
+                  
+                    <!--<view class="weui-cell">
+                      <view class="weui-label">
+                        <view class="weui-cell__hd"></view>
+                      </view>
+                      <view class="weui-cell__bd"></view>
+                    </view>
+
+                    <view class="weui-cell">
+                      <view class="weui-label">
+                        <view class="weui-cell__hd"></view>
+                      </view>
+                      <view class="weui-cell__bd"></view>
+                    </view>
+
+                    <view class="weui-cell">
+                      <view class="weui-label">
+                        <view class="weui-cell__hd"></view>
+                      </view>
+                      <view class="weui-cell__bd"></view>
+                    </view>-->
+
+                  </view>
+                </view>
             </view>
         </view>
     </view>

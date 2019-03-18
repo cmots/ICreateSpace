@@ -1,16 +1,23 @@
+<view class='main' wx:if="{{canIUse}}">
+    <open-data type="userAvatarUrl"></open-data>
+</view>
+
+<view class='main' wx:if="{{canIUse}}">
+<text>\n\n</text>
+    <open-data type="userNickName"></open-data> 
+</view>
+
+<view class='main' wx:if="{{canIUse}}">
+  <view>申请获取以下权限</view>
+</view>
+
+<view class='main' wx:if="{{canIUse}}">
+  <text>\n获得你的公开信息(昵称，头像)</text>
+</view>
+
 <view wx:if="{{canIUse}}">
-    <view class='header'>
-        <image src='/images/wx_login.png'></image>
-    </view>
-
-    <view class='content'>
-        <view>申请获取以下权限</view>
-        <text>获得你的公开信息(昵称，头像等)</text>
-    </view>
-
     <button class='bottom' type='warn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
         授权登录
     </button>
 </view>
-
 <view wx:else>请升级微信版本</view>

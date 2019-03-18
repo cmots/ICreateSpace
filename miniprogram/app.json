@@ -14,7 +14,8 @@
     "pages/application/application",
     "pages/search/search",
     "pages/result/result",
-    "pages/result/single"
+    "pages/result/single",
+    "pages/mine/profile"
   ],
   "window": {
     "backgroundColor": "#fff",
@@ -27,7 +28,7 @@
     "color": "#999",
     "selectedColor": "#ff3300",
     "borderStyle": "white",
-    "backgroundColor":"#fff",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",

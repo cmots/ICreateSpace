@@ -1,0 +1,65 @@
+<view class="page">
+    <view class="page__bd">
+      <view class="weui-cells__title">修改个人信息</view>
+      <view class="weui-cells weui-cells_after-title">
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">昵称</view>
+          </view>
+          <view class="weui-cell__bd"></view>
+          <view class="weui-cell__ft">
+              <input class="weui-input" placeholder='{{nickName}}' bindinput='bindNickNameChange'/>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">专业</view>
+          </view>
+          <view class="weui-cell__bd">{{nowMajor}}</view>
+          <view class="weui-cell__ft">
+              <picker bindchange="bindMajorChange" value="{{majorIndex}}" range="{{major}}">
+                  <view class="weui-select weui-select_in-select-after">{{majorName[majorIndex]}}</view>
+              </picker>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">性别</view>
+          </view>
+          <view class="weui-cell__bd">{{nowGender}}</view>
+          <view class="weui-cell__ft">
+              <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
+                  <view class="weui-select weui-select_in-select-after">{{gender[genderIndex]}}</view>
+              </picker>
+          </view>
+      </view>
+
+      <view class="weui-cells__title">爱好能力</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="{{hobby}}"bindinput='bindHobbyChange'/>
+                    <view class="weui-textarea-counter">{{hobbyNum}}/20</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">个人简介</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="{{description}}" style="height: 3.3em" bindinput='bindProDescriptionChange'/>
+                    <view class="weui-textarea-counter">{{descNum}}/200</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="warn" bindtap="onsubmit">确定</button>
+        </view>
+      </view>
+    </view>
+</view>

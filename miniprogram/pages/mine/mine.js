@@ -51,6 +51,7 @@ Page({
   onShow: function () {
     var that = this
     const db = wx.cloud.database()
+    
     db.collection('relation').where({
       _openid: app.globalData.openid,
       position: 'starter'
@@ -61,6 +62,7 @@ Page({
         })
       }
     })
+
     db.collection('relation').where({
       _openid: app.globalData.openid,
       position: 'groupMember'
@@ -71,6 +73,7 @@ Page({
         })
       }
     })
+
     db.collection('user').where({
       _openid: app.globalData.openid,
     }).get({
