@@ -10,9 +10,10 @@ Page({
     dataList:[],
     type:'',
     major:'',
+    database:''
   },
 
-  loadData:function(major,type){
+  loadData:function(major,type,database){
     wx.showLoading({
       title: '加载中',
     })
@@ -20,10 +21,10 @@ Page({
     const db = wx.cloud.database();
 
     var result = major.split(",")
-
+//type是用来标示学生还是导师的，后期添加字段
     const _ = db.command
     switch (result.length) {
-      case 1: db.collection(type).where({
+      case 1: db.collection(database).where({
         major: _.eq(result[0])
       }).limit(that.data.limit).skip(that.data.num).get({
         success(res) {
@@ -43,7 +44,7 @@ Page({
         },
       });
         break;
-      case 2: db.collection(type).where({
+      case 2: db.collection(database).where({
         major: _.eq(result[0]).or(_.eq(result[1]))
       }).limit(that.data.limit).skip(that.data.num).get({
         success(res) {
@@ -60,7 +61,7 @@ Page({
         }
       });
         break;
-      case 3: db.collection(type).where({
+      case 3: db.collection(database).where({
         major: _.eq(result[0]).or(_.eq(result[1])).or(_.eq(result[2]))
       }).limit(that.data.limit).skip(that.data.num).get({
         success(res) {
@@ -77,7 +78,7 @@ Page({
         }
       });
         break;
-      case 4: db.collection(type).where({
+      case 4: db.collection(database).where({
         major: _.eq(result[0]).or(_.eq(result[1])).or(_.eq(result[2])).or(_.eq(result[3]))
       }).limit(that.data.limit).skip(that.data.num).get({
         success(res) {
@@ -103,11 +104,18 @@ Page({
     var that=this
     const major = options.major
     const type = options.type
+
+    if(options.type=='project')
+      var database="project"
+    else
+      var database="user"
+
     that.setData({
       type:type,
-      major:major
+      major:major,
+      database:database
     })
-    this.loadData(major,type)
+    this.loadData(major,type,database)
   },
 
   /**

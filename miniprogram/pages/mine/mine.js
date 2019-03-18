@@ -7,13 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: ["我发起的项目", "我参与的项目"],
+    tabs: ["我发起的项目", "我参与的项目","我的信息"],
     activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
 
     startProjects:[],
-    attendProjects:[]
+    attendProjects:[],
+    profile:[]
   },
 
   /**
@@ -67,6 +68,15 @@ Page({
       success: function(res){
         that.setData({
           attendProjects: res.data
+        })
+      }
+    })
+    db.collection('user').where({
+      _openid: app.globalData.openid,
+    }).get({
+      success: function(res){
+        that.setData({
+          profile:res.data[0]
         })
       }
     })

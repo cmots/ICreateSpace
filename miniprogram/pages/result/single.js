@@ -46,6 +46,15 @@ Page({
               openid:res.data[0]._openid
             })
           }
+          if (type == 'student') {
+            that.setData({
+              major: res.data[0].major,
+              name: res.data[0].proName,
+              description: res.data[0].description,
+              id: options.id,
+              openid: res.data[0]._openid
+            })
+          }
           wx.hideLoading();
         }
       })
