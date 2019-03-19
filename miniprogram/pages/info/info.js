@@ -7,24 +7,40 @@ Page({
    */
   data: {
     infos:[],
-    avatarUrl:''
+    avatarUrl:'',
+    result:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
   ontap: function (e) {
     var content = e.currentTarget.dataset.index.content
     var temp = e.currentTarget.dataset.index
+
+    console.log(temp)
+
+    /*const db=wx.cloud.database()
+    db.collection('info').where({
+      _id:temp._id
+    }).get({
+      success: function (res) {
+        console.log(res.data[0])
+        that.setData({
+          result: res.data[0]
+        })
+      }
+    })*/
+
     wx.cloud.callFunction({
       name: "updateDatabase",
       data:{
         id: temp._id
       },
       success: function(res){
-        console.log(res)
         if (content == '接受了来自您的入队邀请') {
           wx.navigateTo({
             url: '../msgSuccess/msgSuccess',
@@ -35,7 +51,7 @@ Page({
           })
         } else if (content == '邀请您入队') {
           wx.navigateTo({
-            url: '../operation2/operation2?project=' + temp.project + '&user=' + temp.receiver + '&userNickname=' + temp.receiverNickname + '&proName=' + temp.proName+'&position=' + temp.position,
+            url: '../operation2/operation2?project=' + temp.project + '&user=' + temp.receiver + '&userNickname=' + temp.senderNickname + '&proName=' + temp.proName+'&position=' + temp.position,
           })
         } else if (content == '申请加入到您的队伍'){
           wx.navigateTo({

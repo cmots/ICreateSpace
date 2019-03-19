@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var that = this
     that.setData({
       project:options.project,
@@ -29,7 +30,6 @@ Page({
       _id:options.project
     }).get({
       success: function(res){
-        
         that.setData({
           pro: res.data[0]
         })

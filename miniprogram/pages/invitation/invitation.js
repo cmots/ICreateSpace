@@ -58,8 +58,8 @@ Page({
       data: {
         content: '邀请您入队',
         position: 'groupMember',
-        proName: this.data.proName,
-        project: this.data.project,
+        proName: this.data.pro[this.data.proIndex].proName,
+        project: this.data.pro[this.data.proIndex]._id,
         receiver: this.data.user,
         sender: getApp().globalData.openid,
         senderNickname: this.data.nickName,

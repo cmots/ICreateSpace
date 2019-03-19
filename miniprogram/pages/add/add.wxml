@@ -17,7 +17,7 @@
               <view class="weui-label">专业</view>
           </view>
           <view class="weui-cell__bd">
-              <picker bindchange="bindMajorChange" value="{{majorIndex}}" range="{{major}}">
+              <picker bindchange="bindMajorChange" value="{{majorIndex}}" range="{{majorName}}">
                   <view class="weui-select weui-select_in-select-after">{{majorName[majorIndex]}}</view>
               </picker>
           </view>

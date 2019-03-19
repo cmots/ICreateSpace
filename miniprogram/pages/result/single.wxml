@@ -7,7 +7,7 @@
     <view class="weui-cell__ft">{{state}}</view>
   </view>
   <view class="weui-cell">
-    <view class="weui-cell__bd">专业</view>
+    <view class="weui-cell__bd">专业：</view>
     <view class="weui-cell__hd" wx:if="{{major=='undefined'}}">校外</view>
     <view class="weui-cell__hd" wx:if="{{major=='CS'}}">电信</view>
     <view class="weui-cell__hd" wx:if="{{major=='IOT'}}">物联</view>

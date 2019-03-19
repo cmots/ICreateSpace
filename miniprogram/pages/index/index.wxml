@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<scroll-view  scroll-y="true" style="height:160px"  class="page-body" bindscrolltolower="loadMore">
+<scroll-view  scroll-y="true" style="height:400rpx" class="page-body"  bindscrolltolower="loadMore">
   <view class="swiper">
     <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
@@ -26,27 +26,17 @@
             <view class="index-title">公告信息</view>
               <view class="line"></view>
             <view class="weui-article__section">
-                <view class="weui-article__title">最新消息</view>
                 <view class="weui-article__section">
-                    <view class="weui-article__h2">1.1 节标题</view>
+                    <view class="weui-article__h2">爱创平台</view>
                     <view class="weui-article__p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                        简单却有意义
+                        普通但很好用
                     </view>
-                 <!--   <view class="weui-article__p">
-                        <image class="weui-article__img" src="../images/pic_article.png" mode="aspectFit" style="height: 180px" />
-                        <image class="weui-article__img" src="../images/pic_article.png" mode="aspectFit" style="height: 180px" />
-                    </view>-->
                 </view>
                 <view class="weui-article__section">
-                    <view class="weui-article__h2">1.2 节标题</view>
+                    <view class="weui-article__h2">I Create Space</view>
                     <view class="weui-article__p">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        We do for using.
                     </view>
                 </view>
             </view>

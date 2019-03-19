@@ -1,5 +1,5 @@
 <!--pages/info/info.wxml-->
-<view class="weui-cells__title">未读数红点跟在主题信息后，统一在列表左侧</view>
+<view class="weui-cells__title">消息列表</view>
 
 <view class="weui-cells weui-cells_after-title">
     <block wx:for="{{infos}}" wx:for-item="infoItem" wx:key="*this">

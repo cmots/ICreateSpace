@@ -21,7 +21,6 @@
                         <image src="../../images/wx_login.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
                       </view>
                       <view class="weui-cell__bd">{{startProject.proName}}</view>
-                      <view class="weui-cell__ft">说明文字</view>
                      </view>
                   </block>
                  </view>
