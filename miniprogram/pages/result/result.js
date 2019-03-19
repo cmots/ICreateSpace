@@ -19,10 +19,30 @@ Page({
     })
     var that = this
     const db = wx.cloud.database();
-
+    const _ = db.command
     var result = major.split(",")
 //type是用来标示学生还是导师的，后期添加字段
-    const _ = db.command
+    if(type=='teacher')
+    {
+      db.collection(database).where({
+        major: _.eq(major)
+      }).limit(that.data.limit).skip(that.data.num).get({
+        success(res) {
+          for (var i = 0; i < that.data.limit && i < res.data.length; i++) {
+            that.data.dataList.push(res.data[i]);
+            that.setData({
+              dataList: that.data.dataList
+            })
+          }
+
+          that.setData({
+            num: that.data.num + res.data.length
+          })
+          wx.hideLoading();
+        },
+      });
+    }
+    else{
     switch (result.length) {
       case 1: db.collection(database).where({
         major: _.eq(result[0])
@@ -35,12 +55,10 @@ Page({
               dataList:that.data.dataList
             })
           }
-
           that.setData({
             num: that.data.num + res.data.length
           })
-          wx.hideLoading();
-          
+          wx.hideLoading();   
         },
       });
         break;
@@ -95,6 +113,7 @@ Page({
         }
       });
         break;
+    }
     }
   },
   /**

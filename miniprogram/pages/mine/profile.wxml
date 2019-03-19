@@ -7,9 +7,9 @@
           <view class="weui-cell__hd">
               <view class="weui-label">昵称</view>
           </view>
-          <view class="weui-cell__bd"></view>
-          <view class="weui-cell__ft">
-              <input class="weui-input" placeholder='{{nickName}}' bindinput='bindNickNameChange'/>
+          <view class="weui-cell__bd"><input class="weui-input" bindinput='bindNickNameChange'/></view>
+          <view class="weui-cell__ft" hidden='{{nickNameHide}}'>
+              {{nickName}}
           </view>
       </view>
 
@@ -17,9 +17,9 @@
           <view class="weui-cell__hd weui-cell__hd_in-select-after">
               <view class="weui-label">专业</view>
           </view>
-          <view class="weui-cell__bd">{{nowMajor}}</view>
+          <view class="weui-cell__bd"></view>
           <view class="weui-cell__ft">
-              <picker bindchange="bindMajorChange" value="{{majorIndex}}" range="{{major}}">
+              <picker bindchange="bindMajorChange" value="{{majorIndex}}" range="{{majorName}}">
                   <view class="weui-select weui-select_in-select-after">{{majorName[majorIndex]}}</view>
               </picker>
           </view>
@@ -29,10 +29,10 @@
           <view class="weui-cell__hd weui-cell__hd_in-select-after">
               <view class="weui-label">性别</view>
           </view>
-          <view class="weui-cell__bd">{{nowGender}}</view>
+          <view class="weui-cell__bd"></view>
           <view class="weui-cell__ft">
-              <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
-                  <view class="weui-select weui-select_in-select-after">{{gender[genderIndex]}}</view>
+              <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genderName}}">
+                  <view class="weui-select weui-select_in-select-after">{{genderName[genderIndex]}}</view>
               </picker>
           </view>
       </view>
@@ -41,7 +41,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="{{hobby}}"bindinput='bindHobbyChange'/>
+                    <textarea class="weui-textarea" value="{{hobby}}" style="height: 1.5em" maxlength='20' bindinput='bindHobbyChange'/>
                     <view class="weui-textarea-counter">{{hobbyNum}}/20</view>
                 </view>
             </view>
@@ -51,7 +51,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="{{description}}" style="height: 3.3em" bindinput='bindProDescriptionChange'/>
+                    <textarea class="weui-textarea" value="{{description}}" style="height: 3.3em" maxlength='200' bindinput='bindDescriptionChange'/>
                     <view class="weui-textarea-counter">{{descNum}}/200</view>
                 </view>
             </view>

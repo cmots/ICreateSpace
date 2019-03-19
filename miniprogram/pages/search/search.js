@@ -6,9 +6,9 @@ Page({
    */
   data: {
     checkboxItems:[
-      {name:"电信工程及管理",value:"cs"},
-      {name:"物联网工程",value:"iot"},
-      {name:"电子商务及法律",value:"ee"},
+      {name:"电信工程及管理",value:"CS"},
+      {name:"物联网工程",value:"IOT"},
+      {name:"电子商务及法律",value:"EE"},
       {name:"校外",value:"undefined",checked:'true'},
     ],
     radioItems:[
@@ -52,7 +52,7 @@ Page({
 
   search(e){
     wx.navigateTo({
-      url: '../result/single?id=' + this.data.inputVal + '&type=' + this.data.type+'&key=name',
+      url: '../result/single?name=' + this.data.inputVal + '&type=' + this.data.type+'&key=name',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -79,7 +79,6 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-    console.log(this.data.inputVal)
   },
   /**
    * 生命周期函数--监听页面加载

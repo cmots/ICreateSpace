@@ -1,20 +1,23 @@
 <!--miniprogram/pages/result/result.wxml-->
-<!--<scroll-view scroll-y="true" style="height: 866rpx" lower-threshold="200px" enable-back-to-top="true">
-  <view class="weui-cells weui-cells_after-title" wx:for="{{dataList}}">
-    <navigator url="../result/single?id={{item._id}}&type={{type}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">{{item.proName}}</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-  </view>
-</scroll-view>
--->
+<view class="weui-page" wx:if="{{database=='project'}}">
+<view class="weui-cells__title">项目列表</view>
 <view class="weui-cells weui-cells_after-title" wx:for="{{dataList}}">
   <navigator url="../result/single?id={{item._id}}&type={{type}}&key=id" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">{{item.proName}}</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
 </view>
+</view>
 
+<view class="weui-page" wx:if="{{database=='user'}}">
+<view class="weui-cells__title">用户列表</view>
+<view class="weui-cells weui-cells_after-title" wx:for="{{dataList}}">
+  <navigator url="../result/single?id={{item._id}}&type={{type}}&key=id" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">{{item.nickName}}</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+</view>
+</view>
 
 <!--
 <view class="page">

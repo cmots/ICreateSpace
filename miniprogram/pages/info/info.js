@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    infos:[]
+    infos:[],
+    avatarUrl:''
   },
 
   /**
@@ -59,16 +60,24 @@ Page({
    */
   onShow: function () {
     var that = this
-    console.log(getApp().globalData.openid)
     const db = wx.cloud.database();
     db.collection('info').where({
       receiver: getApp().globalData.openid,
       state: 'unsolved'
     }).get({
       success: function (res) {
-        console.log(res.data)
         that.setData({
           infos: res.data
+        })
+      }
+    }),
+
+    db.collection('user').where({
+      _openid: that.data.infos.sender
+    }).get({
+      success: function (res) {
+        that.setData({
+          avatarUrl: res.data[0].avatarUrl
         })
       }
     })
@@ -77,7 +86,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide:function () {
 
   },
 

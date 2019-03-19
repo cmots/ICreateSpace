@@ -11,7 +11,11 @@ Page({
     major:'',
     key:'',
     description:'',
-    openid:''
+    openid:'',
+    hobby:'',
+    database:'',
+    state:'',
+    avatarUrl:''
   },
 
   /**
@@ -25,7 +29,14 @@ Page({
       type:type,
       key:key
     })
-
+    if(type=='project')
+      that.setData({
+        database:'project'
+      })
+    else
+      that.setData({
+        database: 'user'
+      })
     const db = wx.cloud.database()
     const _ = db.command
     wx.showLoading({
@@ -33,7 +44,7 @@ Page({
     })
     if(key=='id')
     {
-      db.collection(type).where({
+      db.collection(that.data.database).where({
         _id: _.eq(options.id)
       }).get({
         success(res) {
@@ -43,16 +54,19 @@ Page({
               name: res.data[0].proName,
               description:res.data[0].description,
               id:options.id,
-              openid:res.data[0]._openid
+              openid:res.data[0]._openid,
+              state:res.data[0].state
             })
           }
-          if (type == 'student') {
+          if (type == 'student'||type=='teacher') {
             that.setData({
               major: res.data[0].major,
-              name: res.data[0].proName,
+              name: res.data[0].nickName,
               description: res.data[0].description,
               id: options.id,
-              openid: res.data[0]._openid
+              hobby:res.data[0].hobby,
+              openid: res.data[0]._openid,
+              avatarUrl:res.data[0].avatarUrl
             })
           }
           wx.hideLoading();
@@ -61,16 +75,62 @@ Page({
     }
     else if(key=='name'){
       if (type == 'project') {
-        db.collection(type).where({
+        db.collection(that.data.database).where({
+          proName: _.eq(options.name)
+        }).get({
+          success(res) {
+            if(res.data.length==0){              
+              wx.showModal({
+                content: '没有搜到哦',
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    wx.navigateBack({
+                      delta: 1,
+                    })
+                  }
+                }
+              });
+            }
+            else{
+              that.setData({
+                major: res.data[0].major,
+                name: res.data[0].proName,
+                description: res.data[0].description,
+                state:res.data[0].state
+              })
+            }
+            wx.hideLoading();
+          }   
+        })
+      }
+      else if(type=='teacher'||type=='student'){
+        db.collection(that.data.database).where({
           proName: _.eq(options.id)
         }).get({
           success(res) {
+            if (res.data.length == 0) {
+              wx.showModal({
+                content: '没有搜到哦',
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    wx.navigateBack({
+                      delta: 1,
+                    })
+                  }
+                }
+              });
+            }
+            else{
             that.setData({
               major: res.data[0].major,
-              name: res.data[0].proName,
-              description: res.data[0].description,
-              id:options.id
+              name: res.data[0].nickName,
+              hobby:res.data[0].hobby,
+              description: res.data[0].description,  
+              avatarUrl: res.data[0].avatarUrl
             })
+            }
             wx.hideLoading();
           }
         })
@@ -82,6 +142,13 @@ Page({
     var that=this
     wx.navigateTo({
       url: '../application/application?project=' + that.data.id + '&proName=' + that.data.name + '&receiver=' + that.data.openid,
+    })
+  },
+
+  onInvitation: function (e) {
+    var that = this
+    wx.navigateTo({
+      url: '../invitation/invitation?user=' + that.data.openid + '&avatarUrl=' + that.data.avatarUrl + '&major=' + that.data.major + '&nickName=' + that.data.name,
     })
   },
   /**

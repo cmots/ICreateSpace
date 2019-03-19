@@ -18,7 +18,7 @@
   <view class="line"></view>
   <radio-group class="radio-group" bindchange="radioChange" wx:if="{{inputShowed}}">
     <label class="radio" wx:for="{{radioItems}}">
-      <radio value="{{item.value}}" checked="{{item.checked}}" />
+      <radio value="{{item.value}}" color='red' checked="{{item.checked}}" />
       {{item.name}}
     </label>
   </radio-group>

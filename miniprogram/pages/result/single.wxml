@@ -1,9 +1,17 @@
 <!--miniprogram/pages/result/single.wxml-->
+<view class="weui-page" wx:if="{{type=='project'}}">
 <view class="weui-cells__title">项目介绍</view>
 <view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell" wx:if="{{type=='project'}}">
+  <view class="weui-cell">
     <view class="weui-cell__bd">{{name}}</view>
-    <view class="weui-cell__ft">{{major}}</view>
+    <view class="weui-cell__ft">{{state}}</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">专业</view>
+    <view class="weui-cell__hd" wx:if="{{major=='undefined'}}">校外</view>
+    <view class="weui-cell__hd" wx:if="{{major=='CS'}}">电信</view>
+    <view class="weui-cell__hd" wx:if="{{major=='IOT'}}">物联</view>
+    <view class="weui-cell__hd" wx:if="{{major=='EE'}}">电管</view>
   </view>
 </view>
 <view class="weui-cells__title">项目简介</view>
@@ -13,3 +21,53 @@
   </view>
 </view>
 <button type="warn" bindtap='onApplication'>申请加入</button>
+</view>
+
+<view class="weui-page" wx:if="{{type=='teacher'}}">
+<view class="weui-cells__title">导师介绍</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">{{name}}</view>
+  </view>
+
+  <view class="weui-cells__title">研究方向</view>
+  <view class="weui-article">
+    <view class="weui-article__p" >
+      {{hobby}}
+    </view>
+  </view>
+
+</view>
+<view class="weui-cells__title">导师简介</view>
+<view class="weui-article">
+  <view class="weui-article__p" >
+    {{description}}
+  </view>
+</view>
+<button type="warn" bindtap='onInvitation'>邀请他成为项目导师</button>
+</view>
+
+
+<view class="weui-page" wx:if="{{type=='student'}}">
+<view class="weui-cells__title">学生介绍</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">{{name}}</view>
+  </view>
+
+  <view class="weui-cells__title">能力爱好</view>
+  <view class="weui-article">
+    <view class="weui-article__p" >
+      {{hobby}}
+    </view>
+  </view>
+
+</view>
+<view class="weui-cells__title">个人简介</view>
+<view class="weui-article">
+  <view class="weui-article__p" >
+    {{description}}
+  </view>
+</view>
+<button type="warn" bindtap='onInvitation'>邀请他成为项目成员</button>
+</view>
