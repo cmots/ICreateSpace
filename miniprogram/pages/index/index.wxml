@@ -1,4 +1,6 @@
 <!-- index.wxml -->
+<view class="page">
+    <view class="page__bd">
 <scroll-view  scroll-y="true" style="height:400rpx" class="page-body"  bindscrolltolower="loadMore">
   <view class="swiper">
     <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
@@ -20,26 +22,28 @@
   </view>
 </scroll-view> 
 
-<view class="page">
-    <view class="page__bd">
-        <view class="weui-article">
-            <view class="index-title">公告信息</view>
-              <view class="line"></view>
-            <view class="weui-article__section">
-                <view class="weui-article__section">
-                    <view class="weui-article__h2">爱创平台</view>
-                    <view class="weui-article__p">
-                        简单却有意义
-                        普通但很好用
-                    </view>
-                </view>
-                <view class="weui-article__section">
-                    <view class="weui-article__h2">I Create Space</view>
-                    <view class="weui-article__p">
-                        We do for using.
-                    </view>
-                </view>
-            </view>
-        </view>
+  <view class="line"></view>
+
+<view class="weui-flex">
+  <view class="weui-flex__item">
+    <navigator class="placeholder" url='../search/search'>发现</navigator>
+  </view>
+  <view class="weui-flex__item">
+    <navigator class="placeholder">weui</navigator>
+  </view>
+  <view class="weui-flex__item">
+    <navigator class="placeholder">weui</navigator>
+  </view >
+</view>
+
+  <view class="line"></view>
+    <view class="weui-article__section">
+      <view class="weui-article__p">
+      here is the notify but without a head
+      </view>   
     </view>
+
+
+      
+      </view>
 </view>

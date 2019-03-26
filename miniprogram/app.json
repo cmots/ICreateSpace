@@ -15,7 +15,8 @@
     "pages/search/search",
     "pages/result/result",
     "pages/result/single",
-    "pages/mine/profile"
+    "pages/mine/profile",
+    "pages/reservation/reservation"
   ],
   "window": {
     "backgroundColor": "#fff",
@@ -37,10 +38,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/search/search",
+        "pagePath": "pages/reservation/reservation",
         "iconPath": "images/faxianjihuo.png",
         "selectedIconPath": "images/faxianjihuoS.png",
-        "text": "发现"
+        "text": "预约"
       },
       {
         "pagePath": "pages/add/add",
